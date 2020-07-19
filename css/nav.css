@@ -1,0 +1,164 @@
+.overlay {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .1);
+    transition: all 0.2s;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links a {
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.nav_links a.current {
+    border-color: black;
+    /* align-items: center; */
+}
+
+.nav_links a:not(.current):hover {
+    border-color: #989898;
+}
+
+.overlay.show {
+    display: block;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: fixed;
+    width: 100vw;
+    background-color: white;
+    transition: box-shadow 0.2s;
+    z-index: 5;
+}
+
+header.scrolling {
+    box-shadow: 0 5px 5px -5px #333;
+}
+
+.expanded_links.nav_links {
+    display: none;
+}
+
+.expanded_links.nav_links a {
+    font-size: 105%;
+}
+
+.expanded_links.nav_links li:not(:first-child) {
+    margin-left: 10px;
+}
+
+.hamburger div {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    border-radius: 6px;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+}
+
+.slidein_links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 300px;
+    transform: translate(-305px);
+    transition: all 0.2s;
+    box-shadow: 0 0 5px #333;
+    background-color: white;
+    z-index: 20;
+}
+
+.slidein_links .nav_links {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.slidein_links .nav_links li {
+    padding: 10px 5px;
+}
+
+.slidein_links a {
+    font-size: 115%;
+}
+
+.slidein_links.out {
+    transform: translate(0, 0);
+}
+
+.headshot {
+    border-radius: 50%;
+    height: 100px;
+}
+
+header > .headshot {
+    display: none;
+}
+
+#title {
+    width: 100%;
+    padding-left: 15px;
+    font-size: 150%;
+}
+
+.profile {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.profile #close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.profile #close:hover {
+    cursor: pointer;
+}
+
+.profile p {
+    font-size: 130%;
+}
+
+@media screen and (min-width: 600px) {
+    .slidein_links, .hamburger, .overlay.show, #title {
+        display: none;
+    }
+
+    .headshot {
+        height: 75px;
+    }
+
+    .expanded_links.nav_links {
+        display: flex;
+    }
+
+    header > .headshot {
+        display: inline;
+    }
+}
